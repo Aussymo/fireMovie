@@ -6,10 +6,22 @@ import { ClassNames } from '@emotion/react';
 
 import useStyles from './styles';
 
-// change these logos to custom
-const redLogo = 'https://fontmeme.com/permalink/210930/8531c658a743debe1e1aa1a2fc82006e.png';
+const categories = [
+  { label: 'Popular', value: 'popular' },
+  { label: 'Top Rated', value: 'top_rated' },
+  { label: 'Upcoming', value: 'upcoming' },
+];
 
-const blueLogo = 'https://fontmeme.com/permalink/210930/6854ae5c7f76597cf8680e48a2c8a50a.png';
+const demoCategories = [
+  { label: 'Comedy', value: 'comedy' },
+  { label: 'Action', value: 'action' },
+  { label: 'Horror', value: 'horror' },
+  { label: 'Animation', value: 'animation' },
+];
+
+const redLogo = 'https://fontmeme.com/permalink/220804/ff6f1d8ba3bbba58db358799ead101cc.png';
+
+const blueLogo = 'https://fontmeme.com/permalink/220804/59f39eaf889b95d47f87ec811ee7fff5.png';
 
 const Sidebar = ({ setMobileOpen }) => {
   const theme = useTheme();
@@ -30,6 +42,30 @@ const Sidebar = ({ setMobileOpen }) => {
       <Divider />
       <List>
         <ListSubheader>Categories</ListSubheader>
+        {categories.map(({ label, value }) => (
+          <Link key={value} className={classes.links} to="/">
+            <ListItem onClick={() => {}} button>
+              {/* <ListItemIcon>
+                <img src={redLogo} className={classes.genreImages} height={30} />
+              </ListItemIcon> */}
+              <ListItemText primary={label} />
+            </ListItem>
+          </Link>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        <ListSubheader>Genres</ListSubheader>
+        {demoCategories.map(({ label, value }) => (
+          <Link key={value} className={classes.links} to="/">
+            <ListItem onClick={() => {}} button>
+              {/* <ListItemIcon>
+                <img src={redLogo} className={classes.genreImages} height={30} />
+              </ListItemIcon> */}
+              <ListItemText primary={label} />
+            </ListItem>
+          </Link>
+        ))}
       </List>
     </>
   );
